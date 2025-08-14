@@ -1,56 +1,66 @@
 #include <stdio.h>
 
-char getLetterGrade(float score) {
-    if (score >= 80) return 'A';
-    else if (score >= 70) return 'B';
-    else if (score >= 60) return 'C';
-    else if (score >= 50) return 'D';
-    else return 'F';
-}
-
-
-float getNumericGrade(char grade) {
-    switch (grade) {
-        case 'A': return 4.0;
-        case 'B': return 3.0;
-        case 'C': return 2.0;
-        case 'D': return 1.0;
-        default: return 0.0;
-    }
-}
-
 int main() {
-    float calculus, physics, compro;
-    char gradeCal, gradePhy, gradeComp;
-    float pointCal, pointPhy, pointComp, gpa;
+    int calScore, phyScore, compScore;
+    char calGrade, phyGrade, compGrade;
+    float calGPA, phyGPA, compGPA, GPA;
 
-  
     printf("Calculus score: ");
-    scanf("%f", &calculus);
-    printf("Physic score: ");
-    scanf("%f", &physics);
-    printf("compro score: ");
-    scanf("%f", &compro);
+    scanf("%d", &calScore);
+    printf("Physics score: ");
+    scanf("%d", &phyScore);
+    printf("Compro score: ");
+    scanf("%d", &compScore);
 
-    gradeCal = getLetterGrade(calculus);
-    gradePhy = getLetterGrade(physics);
-    gradeComp = getLetterGrade(compro);
+    // Calculus
+    if (calScore >= 80) {
+        calGrade = 'A'; calGPA = 4.0;
+    } else if (calScore >= 70) {
+        calGrade = 'B'; calGPA = 3.0;
+    } else if (calScore >= 60) {
+        calGrade = 'C'; calGPA = 2.0;
+    } else if (calScore >= 50) {
+        calGrade = 'D'; calGPA = 1.0;
+    } else {
+        calGrade = 'F'; calGPA = 0.0;
+    }
 
-    pointCal = getNumericGrade(gradeCal);
-    pointPhy = getNumericGrade(gradePhy);
-    pointComp = getNumericGrade(gradeComp);
+    // Physics
+    if (phyScore >= 80) {
+        phyGrade = 'A'; phyGPA = 4.0;
+    } else if (phyScore >= 70) {
+        phyGrade = 'B'; phyGPA = 3.0;
+    } else if (phyScore >= 60) {
+        phyGrade = 'C'; phyGPA = 2.0;
+    } else if (phyScore >= 50) {
+        phyGrade = 'D'; phyGPA = 1.0;
+    } else {
+        phyGrade = 'F'; phyGPA = 0.0;
+    }
 
-   
-    gpa = (pointCal + pointPhy + pointComp) / 3;
+    // Compro
+    if (compScore >= 80) {
+        compGrade = 'A'; compGPA = 4.0;
+    } else if (compScore >= 70) {
+        compGrade = 'B'; compGPA = 3.0;
+    } else if (compScore >= 60) {
+        compGrade = 'C'; compGPA = 2.0;
+    } else if (compScore >= 50) {
+        compGrade = 'D'; compGPA = 1.0;
+    } else {
+        compGrade = 'F'; compGPA = 0.0;
+    }
 
-  
-    printf("\n%-10s %-6s %-6s %-6s\n", "Subject", "Score", "Grade", "Grade");
-    printf("---------------------------------\n");
-    printf("%-10s %-6.0f %-6c %-6.1f\n", "Cal", calculus, gradeCal, pointCal);
-    printf("%-10s %-6.0f %-6c %-6.1f\n", "Physics", physics, gradePhy, pointPhy);
-    printf("%-10s %-6.0f %-6c %-6.1f\n", "compro", compro, gradeComp, pointComp);
+    // GPA calculation
+    GPA = (calGPA + phyGPA + compGPA) / 3.0;
 
-    printf("\nGPA: %.1f\n", gpa);
+    // Output table
+    printf("\n\n%-10s %-7s %-7s %-7s\n", "Subject", "Score", "Grade", "GPA");
+    printf("--------------------------------------\n");
+    printf("%-10s %-7d %-7c %-7.1f\n", "Cal", calScore, calGrade, calGPA);
+    printf("%-10s %-7d %-7c %-7.1f\n", "Physics", phyScore, phyGrade, phyGPA);
+    printf("%-10s %-7d %-7c %-7.1f\n", "Compro", compScore, compGrade, compGPA);
+    printf("GPA: %.1f\n", GPA);
 
     return 0;
 }
