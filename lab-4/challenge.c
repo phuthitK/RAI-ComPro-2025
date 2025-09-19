@@ -9,14 +9,9 @@ int main(){
     do {
         printf ("====== ATM MENU ======\n");
     printf ("1. Check Balance\n2. Deposit Money\n3. Withdraw Money\n4. Exit\n");
-
     printf ("Choose an option: ");
     scanf ("%d", &opt);
-    // printf ("Enter amount to deposit: ");
-    // scanf ("%d", &amt);
-    
-  
-    
+   
     switch (opt)
     {
     case 1:
@@ -27,7 +22,6 @@ int main(){
         scanf("%d", &amt);
         balance += amt;
         break;
-
     case 3:
         printf ("Enter amount to withdraw: ");
         scanf ("%d", &amt);
@@ -35,14 +29,11 @@ int main(){
         printf ("Withdrawl successful.");
         /* code */
         break;
-        
-        
     }
     printf ("\n\n");
     } while (opt != 4);
     printf ("Thank you for using the ATM.\n");
 
     return 0;
-
 }
 
